@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recapa - Enjoy the show today. Relive it tomorrow.</title>
+  <meta name="description" content="Recapa helps concert-goers stay present during shows while providing high-quality multi-angle recaps synced to the artist's soundboard.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <!-- Note: Recoleta font needs to be added to the assets/fonts directory -->
+</head>
+<body>
+  <!-- Page Transition Overlay -->
+  <div class="page-transition"></div>
+  
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="navbar-logo">
+        <span class="logo-text">recapa</span>
+      </a>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      
+      <div class="navbar-links">
+        <a href="#how-it-works" class="nav-link">For Concert-Goers</a>
+        <a href="artist.html" class="nav-link">For Artists</a>
+        <a href="#get-involved" class="nav-link">Get Involved</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay loop muted playsinline>
+      <source src="assets/videos/hero-video.mp4" type="video/mp4">
+      <!-- Fallback image if video doesn't load -->
+      <img src="assets/images/hero-fallback.jpg" alt="Concert experience">
+    </video>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <h1><span class="logo-text">recapa</span></h1>
+      <p class="hero-subtitle">Enjoy the show today. Relive it tomorrow.</p>
+      <a href="#how-it-works" class="btn btn-primary">Join the Movement</a>
+    </div>
+  </section>
+  
+  <!-- How It Works Section -->
+  <section class="section how-it-works" id="how-it-works">
+    <div class="container">
+      <h2>How Recapa Works</h2>
+      <p>Three simple steps to a distraction-free show and premium replay.</p>
+      
+      <div class="steps-container">
+        <div class="step">
+          <img src="assets/images/step1-icon.svg" alt="Before the Show" class="step-icon">
+          <h3 class="step-title">Before the Show</h3>
+          <p class="step-subtitle">Pledge or Volunteer</p>
+          <p>Choose to film or stay phone-free in the app.</p>
+        </div>
+        
+        <div class="step">
+          <img src="assets/images/step2-icon.svg" alt="During the Show" class="step-icon">
+          <h3 class="step-title">During the Show</h3>
+          <p class="step-subtitle">Enjoy the Show</p>
+          <p>Volunteers capture highlights as they normally would, others stay present in the moment.</p>
+        </div>
+        
+        <div class="step">
+          <img src="assets/images/step3-icon.svg" alt="After the Show" class="step-icon">
+          <h3 class="step-title">After the Show</h3>
+          <p class="step-subtitle">Relive the Night</p>
+          <p>Receive a multi-angle recap synced to the artist's soundboard.</p>
+        </div>
+      </div>
+      
+      <div class="text-center" style="margin-top: var(--spacing-lg);">
+        <a href="#get-involved" class="btn btn-primary">Join the Movement</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Get Involved Section -->
+  <section class="section get-involved" id="get-involved">
+    <div class="container">
+      <h2>Get Involved</h2>
+      
+      <div class="columns-container">
+        <div class="column">
+          <img src="assets/images/concert-goers-icon.svg" alt="Concert-Goers" class="column-icon">
+          <h3 class="column-title">Concert-Goers</h3>
+          <p class="column-text">Be among the first to experience distraction-free concerts with premium multi-angle recaps delivered straight to your phone.</p>
+          
+          <form id="waitlist-form">
+            <div class="form-group">
+              <input type="email" class="form-input" placeholder="Your email address" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Join the Waitlist</button>
+            <div class="form-status" style="display: none;"></div>
+          </form>
+        </div>
+        
+        <div class="column">
+          <img src="assets/images/artists-icon.svg" alt="Artists & Labels" class="column-icon">
+          <h3 class="column-title">Artists & Labels</h3>
+          <p class="column-text">Create more engaging shows while gaining access to high-quality, licensable fan-shot footage synced to your soundboard.</p>
+          
+          <a href="https://calendly.com/wjdparkhouse/chat" target="_blank" class="btn btn-primary">Schedule a 20-min Chat</a>
+        </div>
+        
+        <div class="column">
+          <img src="assets/images/partners-icon.svg" alt="Partners & Developers" class="column-icon">
+          <h3 class="column-title">Partners & Developers</h3>
+          <p class="column-text">Join our ecosystem of venues, promoters, and tech partners to help transform the live music experience for everyone.</p>
+          
+          <a href="https://calendly.com/wjdparkhouse/chat" target="_blank" class="btn btn-primary">Schedule a 20-min Chat</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-text">recapa</span>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>For Fans</h4>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#get-involved">Join Waitlist</a>
+          </div>
+          <div class="footer-column">
+            <h4>For Artists</h4>
+            <a href="artist.html#benefits">Benefits</a>
+            <a href="artist.html#contact">Partner With Us</a>
+          </div>
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="mailto:info@recapa.app">Email Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Recapa. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/transitions.js"></script>
+</body>
+</html>

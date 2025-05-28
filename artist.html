@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recapa for Artists - Keep the Moment, Share the Memory</title>
+  <meta name="description" content="Recapa helps artists create more engaging shows while gaining access to high-quality, licensable fan-shot footage synced to your soundboard.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <!-- Note: Recoleta font needs to be added to the assets/fonts directory -->
+</head>
+<body>
+  <!-- Page Transition Overlay -->
+  <div class="page-transition"></div>
+  
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <span class="logo-text">recapa</span>
+      </a>
+      <div class="navbar-links">
+        <a href="index.html#how-it-works" class="nav-link">For Concert-Goers</a>
+        <a href="artist.html" class="nav-link active">For Artists</a>
+        <a href="index.html#get-involved" class="nav-link">Get Involved</a>
+      </div>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero artist-hero" style="background-color: var(--color-dark-blue);">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Keep the Moment – Share the Memory.</h1>
+        <p class="hero-subtitle">Fans stay present in your performance while you get easily licensable footage.</p>
+        <a href="#contact" class="cta-button">Partner with Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <div class="section-intro">
+        <h2 class="section-title">How Recapa Works</h2>
+        <p class="section-lead">Three simple steps to a distraction-free show and premium replay.</p>
+      </div>
+      
+      <!-- Three-step process -->
+      <div class="steps-container">
+        <div class="step">
+          <div class="step-icon">
+            <img src="assets/icons/before-show.svg" alt="Before the Show" class="icon">
+          </div>
+          <h3 class="step-title">Before the Show</h3>
+          <h4 class="step-subtitle">Pledge or Volunteer</h4>
+          <p class="step-description">Choose to film or stay phone-free in the app.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-icon">
+            <img src="assets/icons/during-show.svg" alt="During the Show" class="icon">
+          </div>
+          <h3 class="step-title">During the Show</h3>
+          <h4 class="step-subtitle">Enjoy the Show</h4>
+          <p class="step-description">Volunteers capture highlights as they normally would, others stay present in the moment.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-icon">
+            <img src="assets/icons/after-show.svg" alt="After the Show" class="icon">
+          </div>
+          <h3 class="step-title">After the Show</h3>
+          <h4 class="step-subtitle">Relive the Night</h4>
+          <p class="step-description">Receive a multi-angle recap synced to the artist's soundboard.</p>
+        </div>
+      </div>
+      
+      <div class="cta-container">
+        <a href="#contact" class="cta-button">Join the Movement</a>
+      </div>
+      
+      <h2 class="section-title benefits-title">Benefits for Artists</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <img src="assets/icons/connection.svg" alt="Real-Time Connection" class="icon">
+          </div>
+          <h3 class="benefit-title">Real-Time Connection</h3>
+          <p class="benefit-description">Phones down ≠ engagement down – crowd energy spikes.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <img src="assets/icons/highlights.svg" alt="Crowd-Sourced Highlights" class="icon">
+          </div>
+          <h3 class="benefit-title">Crowd-Sourced Highlights</h3>
+          <p class="benefit-description">Best fan-shot angles synced to your front-of-house mix.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <img src="assets/icons/licensing.svg" alt="Licensing on Tap" class="icon">
+          </div>
+          <h3 class="benefit-title">Licensing on Tap</h3>
+          <p class="benefit-description">Pre-cleared rights for promos, music videos, social.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <img src="assets/icons/rewards.svg" alt="Fan Rewards" class="icon">
+          </div>
+          <h3 class="benefit-title">Fan Rewards</h3>
+          <p class="benefit-description">Boost loyalty with merch drops or backstage passes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <h3 class="section-title">How It Works</h3>
+      <ul class="process-list">
+        <li class="process-item">Fans opt-in pre-show: volunteer or pledge phone-free.</li>
+        <li class="process-item">We approve ≈10% as official filmers at check-in.</li>
+        <li class="process-item">Volunteers upload clips; our backend syncs audio and delivers HLS.</li>
+        <li class="process-item">Only attendees unlock next-day multi-angle recap.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Testimonials/Data Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h3 class="section-title">What the Data Shows</h3>
+      <div class="testimonial-carousel">
+        <div class="testimonial-slide">
+          <blockquote class="testimonial-quote">
+            "Filming is everywhere. 72% say they record "often or always""
+          </blockquote>
+        </div>
+        <div class="testimonial-slide">
+          <blockquote class="testimonial-quote">
+            "...and most wish it wasn't. 88% rate other people's phones as distracting."
+          </blockquote>
+        </div>
+        <div class="testimonial-slide">
+          <blockquote class="testimonial-quote">
+            "but fans are open to change. 74% would happily leave the phone in their pocket if high-quality footage were delivered afterwards."
+          </blockquote>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-prev" aria-label="Previous slide">&#8592;</button>
+        <div class="carousel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <button class="carousel-next" aria-label="Next slide">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA & Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+      <form class="contact-form" id="artist-contact-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="type">You are a:</label>
+          <select id="type" name="type" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="artist">Artist</option>
+            <option value="label">Label</option>
+            <option value="venue">Venue</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="cta-button">Send Message</button>
+      </form>
+      <p class="closing-line">Let's make concerts feel live again. 🙌</p>
+      <div class="alternative-cta">
+        <p>Prefer to chat directly?</p>
+        <a href="https://calendly.com/wjdparkhouse/chat" class="calendar-link" target="_blank">Schedule a 20-min Chat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-text">recapa</span>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>For Fans</h4>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#get-involved">Join Waitlist</a>
+          </div>
+          <div class="footer-column">
+            <h4>For Artists</h4>
+            <a href="artist.html#benefits">Benefits</a>
+            <a href="artist.html#contact">Partner With Us</a>
+          </div>
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="mailto:info@recapa.app">Email Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Recapa. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/transitions.js"></script>
+</body>
+</html>
