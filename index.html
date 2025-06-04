@@ -1,177 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recapa - Enjoy the show today. Relive it tomorrow.</title>
-  <meta name="description" content="Recapa helps concert-goers stay present during shows while providing high-quality multi-angle recaps synced to the artist's soundboard.">
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-  <!-- Note: Recoleta font needs to be added to the assets/fonts directory -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECAPA - Enjoy the show today. Relive it tomorrow.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <!-- Page Transition Overlay -->
-  <div class="page-transition"></div>
-  
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container navbar-container">
-      <a href="#" class="navbar-logo">
-        <span class="logo-text">recapa</span>
-      </a>
-      
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      
-      <div class="navbar-links">
-        <a href="#how-it-works" class="nav-link">For Concert-Goers</a>
-        <a href="artist.html" class="nav-link">For Artists</a>
-        <a href="#get-involved" class="nav-link">Get Involved</a>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <video class="hero-video" autoplay loop muted playsinline>
-      <source src="assets/videos/hero-video.mp4" type="video/mp4">
-      <!-- Fallback image if video doesn't load -->
-      <img src="assets/images/hero-fallback.jpg" alt="Concert experience">
-    </video>
-    <div class="hero-overlay"></div>
-    
-    <div class="hero-content">
-      <h1><span class="logo-text">recapa</span></h1>
-      <p class="hero-subtitle">Enjoy the show today. Relive it tomorrow.</p>
-      <a href="#how-it-works" class="btn btn-primary">Join the Movement</a>
-    </div>
-  </section>
-  
-  <!-- How It Works Section -->
-  <section class="section how-it-works" id="how-it-works">
-    <div class="container">
-      <h2>How Recapa Works</h2>
-      <p>Three simple steps to a distraction-free show and premium replay.</p>
-      
-      <div class="steps-container">
-        <div class="step">
-          <img src="assets/images/step1-icon.svg" alt="Before the Show" class="step-icon">
-          <h3 class="step-title">Before the Show</h3>
-          <p class="step-subtitle">Pledge or Volunteer</p>
-          <p>Choose to film or stay phone-free in the app.</p>
-        </div>
-        
-        <div class="step">
-          <img src="assets/images/step2-icon.svg" alt="During the Show" class="step-icon">
-          <h3 class="step-title">During the Show</h3>
-          <p class="step-subtitle">Enjoy the Show</p>
-          <p>Volunteers capture highlights as they normally would, others stay present in the moment.</p>
-        </div>
-        
-        <div class="step">
-          <img src="assets/images/step3-icon.svg" alt="After the Show" class="step-icon">
-          <h3 class="step-title">After the Show</h3>
-          <p class="step-subtitle">Relive the Night</p>
-          <p>Receive a multi-angle recap synced to the artist's soundboard.</p>
-        </div>
-      </div>
-      
-      <div class="text-center" style="margin-top: var(--spacing-lg);">
-        <a href="#get-involved" class="btn btn-primary">Join the Movement</a>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Get Involved Section -->
-  <section class="section get-involved" id="get-involved">
-    <div class="container">
-      <h2>Get Involved</h2>
-      
-      <div class="columns-container">
-        <div class="column">
-          <img src="assets/images/concert-goers-icon.svg" alt="Concert-Goers" class="column-icon">
-          <h3 class="column-title">Concert-Goers</h3>
-          <p class="column-text">Be among the first to experience distraction-free concerts with premium multi-angle recaps delivered straight to your phone.</p>
-          
-          <form id="waitlist-form">
-            <div class="form-group">
-              <input type="email" class="form-input" placeholder="Your email address" required>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Recapa</h2>
+                <span class="logo-tagline">Live. Capture. Relive.</span>
             </div>
-            <button type="submit" class="btn btn-primary">Join the Waitlist</button>
-            <div class="form-status" style="display: none;"></div>
-          </form>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#how-it-works" class="nav-link" data-section="how-it-works">
+                        <i class="fas fa-users"></i>
+                        <span>For Concert‑Goers</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/artist-explainer" class="nav-link" data-section="artists">
+                        <i class="fas fa-microphone"></i>
+                        <span>For Artists</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#get-involved" class="nav-link" data-section="get-involved">
+                        <i class="fas fa-handshake"></i>
+                        <span>Get Involved</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-cta">
+                    <a href="#get-involved" class="nav-link btn-nav-cta" onclick="scrollToSection('get-involved')">
+                        <i class="fas fa-rocket"></i>
+                        <span>Join Now</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Remove this entire button block -->
+                <!-- <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button> -->
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+        <div class="nav-progress-bar"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Desktop Video Container -->
+        <div class="hero-video-container desktop-video">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="assets/hero-animation-wide.mp4" type="video/mp4">
+                <!-- Fallback image -->
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Concert Experience" class="hero-fallback">
+            </video>
+            <div class="hero-overlay"></div>
         </div>
         
-        <div class="column">
-          <img src="assets/images/artists-icon.svg" alt="Artists & Labels" class="column-icon">
-          <h3 class="column-title">Artists & Labels</h3>
-          <p class="column-text">Create more engaging shows while gaining access to high-quality, licensable fan-shot footage synced to your soundboard.</p>
-          
-          <a href="https://calendly.com/wjdparkhouse/chat" target="_blank" class="btn btn-primary">Schedule a 20-min Chat</a>
+        <!-- Mobile Video Container -->
+        <div class="hero-video-container mobile-video">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="assets/hero-animation-vertical.mp4" type="video/mp4">
+                <!-- Mobile Fallback image -->
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=768&q=80" alt="Concert Experience Mobile" class="hero-fallback">
+            </video>
+            <div class="hero-overlay"></div>
         </div>
         
-        <div class="column">
-          <img src="assets/images/partners-icon.svg" alt="Partners & Developers" class="column-icon">
-          <h3 class="column-title">Partners & Developers</h3>
-          <p class="column-text">Join our ecosystem of venues, promoters, and tech partners to help transform the live music experience for everyone.</p>
-          
-          <a href="https://calendly.com/wjdparkhouse/chat" target="_blank" class="btn btn-primary">Schedule a 20-min Chat</a>
+        <div class="hero-content">
+            <div class="hero-buttons">
+                <button class="floating-arrow bounce-arrow" id="scroll-arrow" aria-label="Scroll to How It Works section" onclick="scrollToSection('how-it-works')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M7 14L12 19L17 14" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Recapa Works</h2>
+            <p class="section-subtitle">Three simple steps to a distraction-free show and premium replay</p>
+            
+            <div class="steps-container">
+                <div class="step" data-step="1">
+                    <div class="step-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h3>Before the Show</h3>
+                    <h4>Pledge or Volunteer</h4>
+                    <p>Choose to film or stay phone-free in the app.</p>
+                </div>
+                
+                <div class="step" data-step="2">
+                    <div class="step-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>During the Show</h3>
+                    <h4>Enjoy the Show</h4>
+                    <p>Volunteers capture highlights as they normally would, others stay present in the moment.</p>
+                </div>
+                
+                <div class="step" data-step="3">
+                    <div class="step-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>After the Show</h3>
+                    <h4>Relive the Night</h4>
+                    <p>Receive a multi-angle recap synced to the artist's soundboard.</p>
+                </div>
+            </div>
+            
+            <div class="cta-container">
+                <button class="btn btn-primary btn-large" onclick="scrollToSection('get-involved')">Join the Movement</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="get-involved">
+        <div class="container">
+            <h2 class="section-title">Get Involved</h2>
+            
+            <div class="involvement-options">
+                <div class="option-card concert-goers-card">
+                    <div class="card-header">
+                        <i class="fas fa-users"></i>
+                        <h3>Concert-Goers</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Enjoy a distraction-free concert while still receiving premium-quality highlights afterward. Join the movement today!</p>
+                        <div class="waitlist-form">
+                            <input type="email" id="waitlist-email" placeholder="Enter your email" class="email-input">
+                            <button class="btn btn-primary" onclick="joinWaitlist()">Join the Waitlist</button>
+                        </div>
+                        <div id="waitlist-message" class="form-message"></div>
+                    </div>
+                </div>
+                
+                <div class="option-card artists-card">
+                    <div class="card-header">
+                        <i class="fas fa-microphone"></i>
+                        <h3>Artists & Labels</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Amplify your concert experience by offering your fans a premium recap. Let's make it unforgettable together.</p>
+                        <button class="btn btn-primary" onclick="scheduleChat()">Schedule a 20-min Chat</button>
+                    </div>
+                </div>
+                
+                <div class="option-card partners-card">
+                    <div class="card-header">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Partners & Developers</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Collaborate with us to bring innovative features to life for a seamless concert experience.</p>
+                        <button class="btn btn-primary" onclick="scheduleChat()">Schedule a 20-min Chat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Recapa</h3>
+                    <p>Revolutionizing the way people experience live music through innovative concert technology.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="/artist-explainer">Artists</a></li>
+                        <li><a href="#get-involved">Fans</a></li>
+                        <li><a href="#get-involved">Partners</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Recapa. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Popup -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-content">
+            <button class="cookie-close" onclick="document.getElementById('cookieConsent').classList.remove('show')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="cookie-icon">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div class="cookie-text">
+                <h3>We use cookies</h3>
+                <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="btn btn-primary cookie-btn">
+                    <i class="fas fa-check"></i>
+                    Accept All
+                </button>
+                <button id="declineCookies" class="btn btn-secondary cookie-btn">
+                    <i class="fas fa-times"></i>
+                    Decline
+                </button>
+                <button id="cookieSettings" class="btn btn-outline cookie-btn" onclick="window.location.href='cookies.html'">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </button>
+            </div>
+        </div>
     </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <span class="logo-text">recapa</span>
-        </div>
-        <div class="footer-links">
-          <div class="footer-column">
-            <h4>For Fans</h4>
-            <a href="index.html#how-it-works">How It Works</a>
-            <a href="index.html#get-involved">Join Waitlist</a>
-          </div>
-          <div class="footer-column">
-            <h4>For Artists</h4>
-            <a href="artist.html#benefits">Benefits</a>
-            <a href="artist.html#contact">Partner With Us</a>
-          </div>
-          <div class="footer-column">
-            <h4>Connect</h4>
-            <a href="#" target="_blank">Instagram</a>
-            <a href="#" target="_blank">Twitter</a>
-            <a href="mailto:info@recapa.app">Email Us</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Recapa. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
-  <script src="js/form.js"></script>
-  <script src="js/transitions.js"></script>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
