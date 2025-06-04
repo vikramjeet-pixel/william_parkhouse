@@ -575,3 +575,91 @@ if (document.readyState === 'loading') {
 } else {
     initPageTransitions();
 }
+
+// Contact form handling
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactForm);
+    }
+});
+
+async function handleContactForm(e) {
+    e.preventDefault();
+    
+    const nameInput = document.getElementById('contact-name');
+    const emailInput = document.getElementById('contact-email');
+    const subjectInput = document.getElementById('contact-subject');
+    const messageInput = document.getElementById('contact-message');
+    
+    const formData = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        subject: subjectInput.value.trim(),
+        message: messageInput.value.trim()
+    };
+    
+    // Validation
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+        showContactMessage('Please fill in all fields.', 'error');
+        return;
+    }
+    
+    if (!isValidEmail(formData.email)) {
+        showContactMessage('Please enter a valid email address.', 'error');
+        return;
+    }
+    
+    // Show loading state
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    
+    try {
+        // For now, just show success message (replace with actual API call)
+        setTimeout(() => {
+            showContactMessage('Thank you! Your message has been sent successfully.', 'success');
+            contactForm.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 1000);
+        
+        // Uncomment and modify this when you have a backend:
+        /*
+        const response = await fetch('https://recapa.app/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            showContactMessage('Thank you! Your message has been sent successfully.', 'success');
+            contactForm.reset();
+        } else {
+            showContactMessage(data.error || 'Something went wrong. Please try again.', 'error');
+        }
+        */
+    } catch (error) {
+        console.error('Contact form error:', error);
+        showContactMessage('Network error. Please check your connection and try again.', 'error');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+}
+
+function showContactMessage(message, type) {
+    const messageDiv = document.getElementById('contact-form-message');
+    messageDiv.textContent = message;
+    messageDiv.className = `form-message ${type}`;
+    
+    // Clear message after 5 seconds
+    setTimeout(() => {
+        messageDiv.textContent = '';
+        messageDiv.className = 'form-message';
+    }, 5000);
+}
