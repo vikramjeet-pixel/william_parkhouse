@@ -181,10 +181,38 @@ document.querySelectorAll('.step, .option-card').forEach(el => {
 });
 
 // Waitlist API integration
+// Current implementation (lines 184-213)
+// Updated joinWaitlist function with better error handling
+// Alternative POST implementation
+// Enhanced waitlist function with debugging
+// Simple test version
+function joinWaitlist() {
+    alert('Button clicked! Function is working.');
+    console.log('joinWaitlist called successfully');
+}
 async function joinWaitlist() {
+    console.log('joinWaitlist function called'); // Debug log
+    
     const emailInput = document.getElementById('waitlist-email');
     const messageDiv = document.getElementById('waitlist-message');
+    
+    console.log('Email input:', emailInput); // Debug log
+    console.log('Message div:', messageDiv); // Debug log
+    
+    if (!emailInput) {
+        console.error('Email input not found!');
+        alert('Error: Email input not found!');
+        return;
+    }
+    
+    if (!messageDiv) {
+        console.error('Message div not found!');
+        alert('Error: Message div not found!');
+        return;
+    }
+    
     const email = emailInput.value.trim();
+    console.log('Email value:', email); // Debug log
     
     if (!email) {
         showMessage('Please enter your email address.', 'error');
@@ -196,19 +224,43 @@ async function joinWaitlist() {
         return;
     }
     
-    try {
-        const response = await fetch(`https://recapa.app/api/waitlist?email=${encodeURIComponent(email)}`);
-        const data = await response.json();
+    // Show loading state
+    const button = document.querySelector('.waitlist-form button') || document.getElementById('waitlist-btn');
+    if (button) {
+        const originalText = button.textContent;
+        button.textContent = 'Adding...';
+        button.disabled = true;
         
-        if (response.ok) {
-            showMessage('Thank you! You\'ve been added to our waitlist.', 'success');
-            emailInput.value = '';
-        } else {
-            showMessage(data.error || 'Something went wrong. Please try again.', 'error');
+        try {
+            console.log('Making API call to:', `https://recapa.app/api/waitlist?email=${encodeURIComponent(email)}`);
+            
+            const response = await fetch(`https://recapa.app/api/waitlist?email=${encodeURIComponent(email)}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            
+            console.log('API Response:', response);
+            
+            if (response.ok) {
+                const data = await response.text();
+                console.log('API Response data:', data);
+                showMessage('Thank you! You\'ve been added to our waitlist.', 'success');
+                emailInput.value = '';
+            } else {
+                const errorText = await response.text();
+                console.error('API Error:', response.status, errorText);
+                showMessage('Something went wrong. Please try again.', 'error');
+            }
+        } catch (error) {
+            console.error('Waitlist API error:', error);
+            showMessage('Network error. Please check your connection and try again.', 'error');
+        } finally {
+            // Restore button state
+            button.textContent = originalText;
+            button.disabled = false;
         }
-    } catch (error) {
-        console.error('Waitlist API error:', error);
-        showMessage('Network error. Please check your connection and try again.', 'error');
     }
 }
 
@@ -287,7 +339,12 @@ window.addEventListener('load', () => {
 });
 
 // Handle email input on Enter key
+// Add waitlist button event listener
 document.addEventListener('DOMContentLoaded', () => {
+    const waitlistBtn = document.getElementById('waitlist-btn');
+    if (waitlistBtn) {
+        waitlistBtn.addEventListener('click', joinWaitlist);
+    }
     const emailInput = document.getElementById('waitlist-email');
     if (emailInput) {
         emailInput.addEventListener('keypress', (e) => {
@@ -584,82 +641,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-async function handleContactForm(e) {
-    e.preventDefault();
+// EmailJS Configuration
+const EMAILJS_CONFIG = {
+    serviceID: 'service_xxxxxxx',     // Your actual service ID
+    templateID: 'template_xxxxxxx',   // Your actual template ID
+    publicKey: 'xxxxxxxxxxxxxxxx'     // Your actual public key
+};
+
+// Initialize EmailJS
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize EmailJS with your public key
+    emailjs.init(EMAILJS_CONFIG.publicKey);
     
-    const nameInput = document.getElementById('contact-name');
-    const emailInput = document.getElementById('contact-email');
-    const subjectInput = document.getElementById('contact-subject');
-    const messageInput = document.getElementById('contact-message');
-    
-    const formData = {
-        name: nameInput.value.trim(),
-        email: emailInput.value.trim(),
-        subject: subjectInput.value.trim(),
-        message: messageInput.value.trim()
-    };
-    
-    // Validation
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-        showContactMessage('Please fill in all fields.', 'error');
-        return;
-    }
-    
-    if (!isValidEmail(formData.email)) {
-        showContactMessage('Please enter a valid email address.', 'error');
-        return;
-    }
-    
-    // Show loading state
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-    
-    try {
-        // For now, just show success message (replace with actual API call)
-        setTimeout(() => {
+    async function handleContactForm(e) {
+        e.preventDefault();
+        
+        const nameInput = document.getElementById('contact-name');
+        const emailInput = document.getElementById('contact-email');
+        const subjectInput = document.getElementById('contact-subject');
+        const messageInput = document.getElementById('contact-message');
+        
+        const formData = {
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            subject: subjectInput.value.trim(),
+            message: messageInput.value.trim()
+        };
+        
+        // Validation
+        if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+            showContactMessage('Please fill in all fields.', 'error');
+            return;
+        }
+        
+        if (!isValidEmail(formData.email)) {
+            showContactMessage('Please enter a valid email address.', 'error');
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        try {
+            // Send email using EmailJS
+            // Send confirmation email to user
+            await emailjs.send(
+            EMAILJS_CONFIG.serviceID,
+            'template_autoReply', // Create this template
+            {
+                to_email: formData.email,
+                to_name: formData.name
+            }
+            );
+            
+            console.log('Email sent successfully:', response);
             showContactMessage('Thank you! Your message has been sent successfully.', 'success');
             contactForm.reset();
+            
+        } catch (error) {
+            console.error('EmailJS error:', error);
+            showContactMessage('Failed to send message. Please try again or contact us directly.', 'error');
+        } finally {
+            // Reset button state
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        }, 1000);
-        
-        // Uncomment and modify this when you have a backend:
-        /*
-        const response = await fetch('https://recapa.app/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-        
-        const data = await response.json();
-        
-        if (response.ok) {
-            showContactMessage('Thank you! Your message has been sent successfully.', 'success');
-            contactForm.reset();
-        } else {
-            showContactMessage(data.error || 'Something went wrong. Please try again.', 'error');
         }
-        */
-    } catch (error) {
-        console.error('Contact form error:', error);
-        showContactMessage('Network error. Please check your connection and try again.', 'error');
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
     }
-}
 
-function showContactMessage(message, type) {
-    const messageDiv = document.getElementById('contact-form-message');
-    messageDiv.textContent = message;
-    messageDiv.className = `form-message ${type}`;
-    
-    // Clear message after 5 seconds
-    setTimeout(() => {
-        messageDiv.textContent = '';
-        messageDiv.className = 'form-message';
-    }, 5000);
-}
+    function showContactMessage(message, type) {
+        const messageDiv = document.getElementById('contact-form-message');
+        messageDiv.textContent = message;
+        messageDiv.className = `form-message ${type} show`;
+        
+        // Clear message after 5 seconds
+        setTimeout(() => {
+            messageDiv.textContent = '';
+            messageDiv.className = 'form-message';
+        }, 5000);
+    }
+
+    // Email validation function
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+});
